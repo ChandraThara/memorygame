@@ -1,0 +1,182 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    font-family: 'Coda', cursive;
+}
+
+.bkg-animated {
+  background: gray url(https://subtlepatterns.com/patterns/geometry2.png) repeat 0 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  height: auto;
+  box-sizing: border-box;
+  -webkit-animation: slide 20s linear infinite;
+}
+
+.bkg-animated {
+  font-family: sans-serif;
+}
+
+@-webkit-keyframes slide {
+    from { background-position: 0 0; }
+    to { background-position: -400px 0; }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    text-shadow: 0 0 3px #FF0000, 0 0 5px #0000FF;
+}
+
+/*
+ * Styles for the deck of cards
+ */
+
+.deck {
+    width: 660px;
+    min-height: 680px;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 3em;
+}
+
+.deck .card {
+    height: 125px;
+    width: 125px;
+    background: #2e3d49;
+    font-size: 0;
+    color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+
+.deck .card.open {
+    transform: rotateY(0);
+    background: #02b3e4;
+    cursor: default;
+}
+
+.deck .card.show {
+    font-size: 33px;
+}
+
+.deck .card.match {
+    cursor: default;
+    background: #02ccba;
+    font-size: 33px;
+}
+
+/*
+ * Styles for the Score Panel
+ */
+
+.score-panel {
+    text-align: left;
+    width: 345px;
+    margin-bottom: 10px;
+}
+
+.score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+}
+
+.score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.score-panel .restart {
+    float: right;
+    cursor: pointer;
+}
+
+#modalContainer {
+  z-index:1;
+  position: absolute;
+  border: 1px solid red;
+  padding: 40px;
+  max-width: 500px;
+  width: 60%;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
+  border-radius: 3px;
+  background: #fff;
+  text-align: center;
+}
+
+.modal-title {
+  font : 25px 'Open Sans', sans-serif;
+  text-shadow: 0 0 2px #FF0000, 0 0 2px #0000FF;
+}
+
+#modalContent {
+  font : 15px 'Open Sans', sans-serif;
+}
+
+#startGame {
+  position: absolute;
+}
+
+#startButton {
+  padding: 20px 40px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 12px #999;
+}
+
+.close {
+  float : right;
+}
+
+.rotate {
+  transform: rotate(0);
+  transition: transform 0.5s ease;
+}
+
+.scale{
+  transform: scale(1, 1);
+  transition: transform 0.5s ease;
+}
